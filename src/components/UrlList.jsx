@@ -24,11 +24,11 @@ function UrlList() {
   };
 
   return (
-    <div className="url-list">
+    <div className="url-list  ">
       <input
         type="text"
         placeholder="Search URLs"
-        className="form-control mb-3"
+        className="form-control mb-3 mt-4 shadow-lg"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

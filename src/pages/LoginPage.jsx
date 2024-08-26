@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../redux/slices/authSlice';
@@ -12,10 +12,10 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Retrieve registered user credentials from localStorage
+    
     const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
 
-    // Check if email and password match registered credentials
+    
     if (registeredUser && registeredUser.email === email && registeredUser.password === password) {
       const user = { email, password };
       dispatch(login(user));
@@ -26,9 +26,11 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-page">
+   <div className='d-flex justify-content-center mt-5 '>
+     <div className="login-page w-50 p-5 bg-white border shadow-lg">
+     
+      <form onSubmit={handleSubmit} >
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email</label>
           <input
@@ -49,11 +51,12 @@ function LoginPage() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-3">
           Login
         </button>
       </form>
     </div>
+   </div>
   );
 }
 

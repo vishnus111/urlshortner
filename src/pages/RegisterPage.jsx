@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
@@ -9,15 +9,16 @@ function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Store registered user credentials in localStorage
+    
     localStorage.setItem('registeredUser', JSON.stringify({ email, password }));
     
-    // Redirect to login page after successful registration
+    
     navigate('/login');
   };
 
   return (
-    <div className="register-page">
+   <div className='d-flex justify-content-center mt-5 '>
+        <div className="register-page w-50 p-5 bg-white border shadow-lg">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -40,11 +41,12 @@ function RegisterPage() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-3">
           Register
         </button>
       </form>
     </div>
+   </div>
   );
 }
 

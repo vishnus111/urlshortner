@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUrl } from '../redux/slices/urlSlice';
 import { shortenUrl } from '../utils/urlShortener';
@@ -13,7 +13,7 @@ function UrlForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Allow URL addition only if the user is logged in and matches the registered credentials
+    
     const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
     if (registeredUser && registeredUser.email === user.email && registeredUser.password === user.password) {
       if (urls.filter((u) => u.user === user.email).length >= 5) {
@@ -30,8 +30,9 @@ function UrlForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form className='p-4 bg-white border rounded shadow-lg mt-4' onSubmit={handleSubmit} >
+      <h3 className='pt-3 pb-4'>Shorten your url</h3>
+      <div className="form-group ">
         <label>Title</label>
         <input
           type="text"
@@ -51,7 +52,7 @@ function UrlForm() {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary my-4">
         Shorten URL
       </button>
     </form>

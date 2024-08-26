@@ -1,4 +1,4 @@
-
+import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="container mt-3">
+      <div className="container-fluid mt-3 px-5 bg-light ">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
